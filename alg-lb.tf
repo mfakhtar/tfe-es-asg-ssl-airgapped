@@ -110,7 +110,7 @@ resource "aws_lb_target_group" "asg-target-replicated" {
   port     = 8800
   protocol = "HTTPS"
   vpc_id   = aws_vpc.guide-tfe-es-vpc.id
-/*
+  /*
   health_check {
     path                = "/"
     protocol            = "HTTP"

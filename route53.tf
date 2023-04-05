@@ -35,6 +35,14 @@ resource "aws_acm_certificate" "cert" {
 }
 
 
+resource "aws_s3_object" "certificate_artifacts_s3_objects" {
+  for_each = toset(["certificate_pem", "issuer_pem", "private_key_pem"])
+
+  bucket  = aws_s3_bucket.guide-tfe-es-s3.id
+  key     = each.key # TODO set your own bucket path
+  content = lookup(acme_certificate.certificate, "${each.key}")
+}
+
 resource "aws_route53_record" "www" {
   zone_id = data.aws_route53_zone.base_domain.zone_id
   name    = var.dns_hostname

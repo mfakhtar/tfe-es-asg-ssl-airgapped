@@ -78,29 +78,29 @@ locals {
 }
 
 resource "aws_s3_object" "file_upload-license" {
-  bucket      = aws_s3_bucket.guide-tfe-es-s3.id
-  key         = "license.rli"
-  source      = local.object_source
- # source_hash = filemd5(local.object_source)
+  bucket = aws_s3_bucket.guide-tfe-es-s3.id
+  key    = "license.rli"
+  source = local.object_source
+  # source_hash = filemd5(local.object_source)
 }
 
 resource "aws_s3_object" "file_upload-airgapped" {
-  bucket      = aws_s3_bucket.guide-tfe-es-s3.id
-  key         = "TerraformEnterprise.airgap"
-  source      = "${path.module}/TerraformEnterprise.airgap"
-# source_hash = filemd5(local.object_source)
+  bucket = aws_s3_bucket.guide-tfe-es-s3.id
+  key    = "TerraformEnterprise.airgap"
+  source = "${path.module}/TerraformEnterprise.airgap"
+  # source_hash = filemd5(local.object_source)
 }
 
 resource "aws_s3_object" "file_upload-replicated" {
-  bucket      = aws_s3_bucket.guide-tfe-es-s3.id
-  key         = "replicated.tar.gz"
-  source      = "${path.module}/replicated.tar.gz"
-#  source_hash = filemd5(local.object_source)
+  bucket = aws_s3_bucket.guide-tfe-es-s3.id
+  key    = "replicated.tar.gz"
+  source = "${path.module}/replicated.tar.gz"
+  #  source_hash = filemd5(local.object_source)
 }
 
 resource "aws_s3_object" "file_upload-install" {
-  bucket      = aws_s3_bucket.guide-tfe-es-s3.id
-  key         = "install.sh"
-  source      = "${path.module}/install.sh"
- # source_hash = local.object_source
+  bucket = aws_s3_bucket.guide-tfe-es-s3.id
+  key    = "install.sh"
+  source = "${path.module}/install.sh"
+  # source_hash = local.object_source
 }

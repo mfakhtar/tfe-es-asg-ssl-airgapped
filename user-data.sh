@@ -84,11 +84,12 @@ cat > /etc/replicated.conf <<EOF
   "DaemonAuthenticationPassword": "${tfe-pwd}",
   "TlsBootstrapType": "server-path",
   "TlsBootstrapHostname": "${dns_hostname}.${dns_zonename}",
-  "TlsBootstrapCert":                  "/tmp/server.crt",
-  "TlsBootstrapKey":                   "/tmp/server.key",
+  "TlsBootstrapCert": "/tmp/server.crt",
+  "TlsBootstrapKey": "/tmp/server.key",
   "LogLevel": "debug",
   "ImportSettingsFrom": "/tmp/tfe_settings.json",
   "LicenseFileLocation": "/tmp/license.rli",
+  "LicenseBootstrapAirgapPackagePath": "/tmp/TerraformEnterprise.airgap",
   "BypassPreflightChecks": true
 }
 EOF
